@@ -24,7 +24,8 @@ Together, these projects demonstrate a complete, production-aligned Fabric ecosy
 
 ## Repository Structure
 
-```fortum-fabric-bi-platform/
+```
+fortum-fabric-bi-platform/
 │
 ├── docs/ # Architecture, governance, design documentation
 ├── projects/ # All three project implementations
@@ -124,5 +125,6 @@ The `/website` folder contains optional public-facing material for publishing th
 ## Contact
 
 This portfolio is part of a demonstration of Fabric engineering, governance and architectural capability for an enterprise data environment.
+
 
 
