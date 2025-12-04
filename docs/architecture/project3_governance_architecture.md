@@ -21,7 +21,8 @@ This framework ensures Fabric remains compliant, scalable, and consistent across
 
 ## 2. High-Level Governance Architecture Diagram
 
-```flowchart LR
+```mermaid
+flowchart LR
     A[Fabric Tenant Settings] --> B[Workspace Strategy]
     B --> C[Development Workspace]
     B --> D[Test Workspace]
@@ -41,6 +42,7 @@ This framework ensures Fabric remains compliant, scalable, and consistent across
         Y --> E
     end
 ```
+
 ---
 
 ## 3. Governance Components
