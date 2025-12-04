@@ -36,7 +36,7 @@ flowchart LR
         Y --> F
         Y --> G
     end
-
+```
 ---
 
 ## 3. Storage Layers
