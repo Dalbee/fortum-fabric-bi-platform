@@ -23,12 +23,12 @@ The solution is built around Microsoft Fabric, leveraging the following core cap
 
 ```mermaid
 flowchart LR
-    A[Source Systems: API / CSV / Synthetic Data] --> B[Dataflow Gen2 Ingestion]
+    A[Source Systems: API, CSV, Synthetic Data] --> B[Dataflow Gen2 Ingestion]
     B --> C[OneLake / Lakehouse Raw Zone]
-    C --> D[Notebook (PySpark) Transformations]
+    C --> D[Notebook PySpark Transformations]
     D --> E[Lakehouse Curated Zone]
-    E --> F[Semantic Model (Power BI Dataset)]
-    F --> G[Power BI Report / Dashboards]
+    E --> F[Semantic Model: Power BI Dataset]
+    F --> G[Power BI Reports and Dashboards]
     G --> H[Business Users]
 
     subgraph Deployment
@@ -36,7 +36,6 @@ flowchart LR
         Y --> F
         Y --> G
     end
-    
 ```
 ---
 
