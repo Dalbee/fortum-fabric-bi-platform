@@ -1,0 +1,61 @@
+model:
+  name: EnergyAnalyticsModel
+  description: Semantic model for Fortum-style energy production, emissions, and heating analytics.
+
+dimensions:
+  - name: DimPlant
+    key: plant_id
+    fields:
+      - plant_name
+      - region
+      - energy_type
+
+  - name: DimDate
+    key: date
+    fields:
+      - year
+      - quarter
+      - month
+      - day
+      - day_of_week
+
+facts:
+  - name: FactEnergyProduction
+    keys:
+      - date
+      - plant_id
+    measures:
+      - Total MWh Produced
+      - Avg Production
+      - Max Production
+
+  - name: FactDistrictHeating
+    keys:
+      - date
+      - plant_id
+    measures:
+      - Total Heating Produced
+      - Total Heating Consumed
+      - Heating Balance
+
+  - name: FactCO2Emissions
+    keys:
+      - date
+      - plant_id
+    measures:
+      - Total CO2 (kg)
+      - CO2 Intensity (kg/MWh)
+
+relationships:
+  - from: DimDate.date
+    to: FactEnergyProduction.date
+  - from: DimDate.date
+    to: FactDistrictHeating.date
+  - from: DimDate.date
+    to: FactCO2Emissions.date
+  - from: DimPlant.plant_id
+    to: FactEnergyProduction.plant_id
+  - from: DimPlant.plant_id
+    to: FactDistrictHeating.plant_id
+  - from: DimPlant.plant_id
+    to: FactCO2Emissions.plant_id
