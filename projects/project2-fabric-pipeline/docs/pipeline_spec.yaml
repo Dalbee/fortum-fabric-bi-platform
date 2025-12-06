@@ -1,0 +1,37 @@
+pipeline:
+  name: "ETL Energy Pipeline"
+  purpose: >
+    Orchestrates ingestion, transformation, and semantic model refresh for
+    the Energy BI solution using Microsoft Fabric.
+  schedule:
+    frequency: "Daily"
+    time_utc: "02:00"
+  steps:
+    - order: 1
+      name: "Run Dataflow Ingestion"
+      type: "Dataflow Gen2"
+      description: "Loads raw CSV data into Lakehouse raw tables."
+      produces:
+        - "raw.FactEnergyProduction"
+        - "raw.FactDistrictHeating"
+        - "raw.FactCO2Emissions"
+        - "raw.DimDate"
+        - "raw.DimPlant"
+    - order: 2
+      name: "Run PySpark Transformation"
+      type: "Notebook"
+      notebook: "transform_energy_data"
+      description: >
+        Joins raw tables with DimDate/DimPlant and writes curated Delta tables,
+        including calculated CO2 intensity and heating balance.
+      produces:
+        - "curated.FactEnergyDaily"
+        - "curated.FactHeatingDaily"
+        - "curated.FactCO2Daily"
+        - "curated.DimDate"
+        - "curated.DimPlant"
+    - order: 3
+      name: "Refresh Semantic Model"
+      type: "Power BI Dataset Refresh"
+      dataset: "EnergyAnalyticsModel"
+      description: "Refreshes the Power BI model against curated Lakehouse tables."

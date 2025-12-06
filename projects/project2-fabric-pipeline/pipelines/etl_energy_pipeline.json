@@ -1,0 +1,38 @@
+{
+  "name": "ETL Energy Pipeline",
+  "description": "End-to-end ingestion and transformation pipeline for energy analytics.",
+  "activities": [
+    {
+      "name": "Run Dataflow Ingestion",
+      "type": "Dataflow",
+      "dataflowName": "Energy Ingestion Dataflow",
+      "dependsOn": []
+    },
+    {
+      "name": "Run PySpark Transformation",
+      "type": "Notebook",
+      "notebookName": "transform_energy_data",
+      "dependsOn": [
+        {
+          "activity": "Run Dataflow Ingestion",
+          "condition": "Succeeded"
+        }
+      ]
+    },
+    {
+      "name": "Refresh Semantic Model",
+      "type": "PowerBIRefresh",
+      "datasetName": "EnergyAnalyticsModel",
+      "dependsOn": [
+        {
+          "activity": "Run PySpark Transformation",
+          "condition": "Succeeded"
+        }
+      ]
+    }
+  ],
+  "schedule": {
+    "frequency": "Day",
+    "time": "02:00"
+  }
+}
