@@ -20,7 +20,7 @@ The pipeline is designed to:
 
 This directly supports Fortum’s goal of creating reusable, governed data products.
 
---
+---
 
 ## 2. High-Level Architecture Diagram
 
@@ -43,7 +43,7 @@ flowchart TD
     end
 ```
 
---
+---
 
 ## 3. Components Overview
 ### 3.1 Dataflow Gen2 (Ingestion Layer)
@@ -94,7 +94,7 @@ flowchart TD
 
 - Provides monitoring and scheduling
 
---
+---
 
 ## 4. Process Flow
 
@@ -110,7 +110,7 @@ flowchart TD
 
 - All assets tracked in GitHub for version control
 
---
+---
 
 ## 5. Best Practices Applied
 
@@ -128,7 +128,7 @@ flowchart TD
 
 - Lineage visibility across the stack
 
---
+---
 
 ## 6. Security & Access Control
 
@@ -140,7 +140,7 @@ flowchart TD
 
 - Controlled deployment of pipelines
 
---
+---
 
 ## 7. Deployment Approach
 
@@ -154,7 +154,7 @@ flowchart TD
 
 - Versioning ensures safe rollbacks
 
---
+---
 
 ## 8. Summary
 
