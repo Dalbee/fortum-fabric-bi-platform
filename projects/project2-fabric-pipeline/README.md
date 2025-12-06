@@ -71,11 +71,11 @@ These files demonstrate engineering capability, documentation maturity, and DevO
 ### **Step 1 — Ingestion (Dataflow Gen2)**  
 The Dataflow loads CSV files into raw Delta tables:
 
-raw.FactEnergyProduction
-raw.FactDistrictHeating
-raw.FactCO2Emissions
-raw.DimDate
-raw.DimPlant
+- raw.FactEnergyProduction
+- raw.FactDistrictHeating
+- raw.FactCO2Emissions
+- raw.DimDate
+- raw.DimPlant
 
 
 ### **Step 2 — Transformation (PySpark Notebook)**  
@@ -88,13 +88,13 @@ The notebook performs:
 - Adding renewable energy flags  
 - Writing curated Delta tables
 
-#### Resulting Curated Tables
+**Resulting Curated Tables**
+- curated.FactEnergyDaily  
+- curated.FactHeatingDaily  
+- curated.FactCO2Daily  
+- curated.DimDate  
+- curated.DimPlant  
 
-curated.FactEnergyDaily
-curated.FactHeatingDaily
-curated.FactCO2Daily
-curated.DimDate
-curated.DimPlant
 
 
 ### **Step 3 — Orchestration (Fabric Pipeline)**
